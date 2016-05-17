@@ -14,8 +14,8 @@
 <fieldset class="rsslib">
 <?php
 	require_once("rsslib.php");
-	$url = "http://www.scriptol.com/rss.xml";
-	echo RSS_Display($url, 15, false, true);
+	$url = "http://www.programme-television.org/programme-tv.xml";
+	echo RSS_Display($url, 100, false, true);
 ?>
 </fieldset>
 </body>

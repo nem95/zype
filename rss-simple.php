@@ -10,17 +10,20 @@
 
 	
 <body bgcolor="#FFFFFF">
+<!--
+Flux rss
+http://www.programme-television.org/programme-tv.xml
+h-->
 <h1>Chargement et affichage d'un flux RSS</h1>
 <hr>
-<p>Cette démonstration charge un flux RSS distant, ou sur le même site, et affiche le contenu ci-dessous.<br>
-Elle utilise la librairie  rsslib.php, écrite en PHP 5, pour extraire l'informtion et l'afficher.</p>
+
 <p> Donnez l'URL d'un flux RSS: </p>
 <FORM name="rss" method="POST" action="rss-simple.php">
-<p>
-	<INPUT type="submit" value="Envoyer">
-</p>
-  <p> 
-    <input type="text" name="dyn" size="48" value="http://www.scriptol.fr/rss.xml">
+	<p>
+		<INPUT type="submit" value="Envoyer">
+	</p>
+	<p>
+		<input type="text" name="dyn" size="48" value="http://www.programme-television.org/programme-tv.xml">
   </p>
 </FORM><?php
 
@@ -35,7 +38,7 @@ if($posted!= false && count($posted) > 0)
 	$url= $posted["dyn"];
 	if($url != false)
 	{
-		echo RSS_Display($url, 15);
+		echo RSS_Display($url, 100);
 	}
 }
 ?>

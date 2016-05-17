@@ -40,9 +40,9 @@ angular.module('starter', [])
                     $scope.entries = JSON.parse(window.localStorage["entries"]);
                 }
             });
-    };
+    }
   $scope.browse = function(v) {
     window.open(v, "_system", "location=yes");
-  };
+  }
 
 });

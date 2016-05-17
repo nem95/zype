@@ -31,6 +31,11 @@ angular.module('starter', ['ionic'])
             templateUrl: 'templates/home.html'
         });
 
+        $stateProvider.state('lists', {
+            url: '/lists',
+            templateUrl: 'templates/lists.html'
+        });
+
         $stateProvider.state('info', {
             url: '/info',
             templateUrl: 'templates/info.html'

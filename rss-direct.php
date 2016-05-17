@@ -16,6 +16,19 @@
 	require_once("rsslib.php");
 	$url = "http://www.programme-television.org/programme-tv.xml";
 	echo RSS_Display($url, 100, false, true);
+/*
+require_once 'rss_fetch.inc';
+
+$url = 'http://www.programme-television.org/programme-tv.xml';
+$rss = fetch_rss($url);
+
+echo "Site: ", $rss->channel['title'], "<br>";
+foreach ($rss->items as $item ) {
+	$title = $item[title];
+	$url   = $item[link];
+	echo "<a href=$url>$title</a></li><br>";
+}*/
+
 ?>
 </fieldset>
 </body>

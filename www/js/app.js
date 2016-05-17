@@ -23,10 +23,13 @@ angular.module('starter', [])
   });
 })
 
-.controller('rssApp', function ($scope, $http) {
+var starter = angular.module('starter',[]);
+
+
+starter.controller('FeedController', function ($scope, $http) {
 
     $scope.init = function() {
-        $http.get("http://ajax.googleapis.com/ajax/services/feed/load", { params: { "v": "1.0", "q": "https://www.thepolyglotdeveloper.com/feed/" } })
+        $http.get("http://www.programme-television.org/programme-tv.xml")
             .success(function(data) {
                 $scope.rssTitle = data.responseData.feed.title;
                 $scope.rssUrl = data.responseData.feed.feedUrl;
@@ -40,9 +43,9 @@ angular.module('starter', [])
                     $scope.entries = JSON.parse(window.localStorage["entries"]);
                 }
             });
-    }
+    };
   $scope.browse = function(v) {
     window.open(v, "_system", "location=yes");
-  }
+  };
 
 });

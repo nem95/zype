@@ -23,18 +23,11 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane>
       <ion-header-bar class="bar-stable">
         <h1 class="title">Zype, l'appli du turfu</h1>
       </ion-header-bar>
-      <ion-content ng-controller="FeedController" ng-init="init()">
-        <div class="list">
-          <a ng-repeat="entry in entries" class="item" ng-click="browse(entry.link)">
-            <b>{{entry.title}}</b><br>
-            <span ng-bind-html="entry.contentSnippet"></span>
-          </a>
-        </div>
-      </ion-content>
-    </ion-pane>
+
+      <ion-nav-view></ion-nav-view>
+
   </body>
 </html>

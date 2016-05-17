@@ -1,1 +1,46 @@
-/* Empty. Add your own CSS if you like */
+.bar.bar-stable {
+    background-color: #53AFE0;
+    border: none;
+}
+.bar.bar-stable .title {
+    color: #fff;
+}
+.img-info {
+    position: relative;
+}
+.img-info h2 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    text-shadow: 0px 0px  15px #000;
+}
+.img-film {
+    width: 100%;
+    height: auto;
+}
+.img-chaine {
+    position: absolute;
+    bottom: 5%;
+    left: 10px;
+    width: 10%;
+    height: auto;
+}
+.heure {
+    position: absolute;
+    bottom: 5%;
+    left: 15%;
+    font-size: 15px;
+    color: #fff;
+}
+.temps {
+    position: absolute;
+    bottom: 5%;
+    right: 15%;
+    font-size: 15px;
+    color: #fff;
+}

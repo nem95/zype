@@ -1,6 +1,5 @@
 angular.module('starter.controllers', [])
 
-<<<<<<< HEAD
 .controller('homeConttroller', function($scope) {
     /*Category
     * FILMS:
@@ -11,14 +10,14 @@ angular.module('starter.controllers', [])
     * Policier
     * Suspense
     * Action
-    * 
-    * 
+    *
+    *
     * SERIES TV:
     * Drame TV
     * Policier TV
     * Suspense TV
     * Action TV
-    * 
+    *
     * */
 
   $scope.programme = {
@@ -159,8 +158,7 @@ console.log($scope.programme.jour1[4]);
   $scope.programme = function(){
     console.log('hello');
   }
-});
-=======
+})
     .controller('ListsConttroller', function ($scope, $stateParams, $ionicModal, $http) {
 
         getProgram($stateParams.categorie);
@@ -173,7 +171,7 @@ console.log($scope.programme.jour1[4]);
     })
 
     .controller('InfoConttroller', function ($scope, $stateParams, $ionicModal, $http) {
-        
+
         getInfo($stateParams.title);
         function getInfo() {
             $http.post("http://localhost/zype/www/script/getinfo.php?title=" + $stateParams.title).success(function (data) {
@@ -182,4 +180,3 @@ console.log($scope.programme.jour1[4]);
         };
 
     });
->>>>>>> 84fe0bf8b8419b8450811b5c109cc5187e19f4f8

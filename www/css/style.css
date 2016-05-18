@@ -59,3 +59,12 @@ a {
     font-size: 15px;
     color: #fff;
 }
+
+/* Bouons */
+
+h2{
+
+    border-bottom: 1px lightgrey solid;}
+.souhaits button{
+    margin: 5px 5px 10px 5px;
+}

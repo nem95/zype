@@ -37,7 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         });
 
         $stateProvider.state('info', {
-            url: '/info',
+            url: '/info/:title',
             templateUrl: 'templates/info.html'
         });
 

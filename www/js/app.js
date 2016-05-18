@@ -32,12 +32,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         });
 
         $stateProvider.state('lists', {
-            url: '/lists',
+            url: '/lists/:categorie',
             templateUrl: 'templates/lists.html'
         });
 
         $stateProvider.state('info', {
-            url: '/info',
+            url: '/info/:title',
             templateUrl: 'templates/info.html'
         });
 

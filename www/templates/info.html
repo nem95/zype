@@ -1,12 +1,10 @@
 <ion-view view-title="Info">
-    <ion-content>
-        <div class="img-info">
-            <h2>Nom du film</h2>
-            <img class="img-film" src="https://masemainecinema.files.wordpress.com/2014/03/4qfxt9btxefuamr4f49m2mpkqi1.jpg" alt="">
-            <img class="img-chaine" src="http://img.generation-nt.com/tf1-logo_0906CE028201568232.png" alt="">
-            <span class="heure">20h50</span>
-            <span class="temps">2h16</span>
+    <ion-content ng-controller="InfoConttroller">
+
+        <div ng-repeat="inf in info" class="padding">
+            <h2>{{inf.title}}</h2>
+            <p>{{inf.description}}</p>
         </div>
-        <p class="padding">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eos error et exercitationem itaque nam rem, sint sunt voluptatem voluptatum? Asperiores beatae consequatur dolore iste quos tempora! Accusantium, asperiores, possimus.</p>
+
     </ion-content>
 </ion-view>

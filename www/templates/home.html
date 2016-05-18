@@ -1,14 +1,14 @@
 <ion-view view-title="Home">
-    <ion-content class="padding">
+    <ion-content class="padding" ng-controller="homeConttroller">
 
-        <a href="/#/lists">
-            <button class="button button-outline button-positive">
+        <a href="/#/lists/action">
+            <button class="button button-outline button-positive" ng-click="programme('action');">
                 Action
             </button>
         </a>
 
-        <a href="/#/lists">
-            <button class="button button-outline button-positive">
+        <a href="/#/lists/science-fiction">
+            <button class="button button-outline button-positive" ng-model="sf" ng-click="programme('sf');">
                 Science fiction
             </button>
         </a>

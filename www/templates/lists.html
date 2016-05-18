@@ -1,6 +1,7 @@
 <ion-view view-title="Lists">
-    <ion-content ng-controller="homeConttroller">
-
+    <ion-content ng-controller="homeConttroller" data-ng-init="programme();">
+      <div class="" ng-repeat="prog in programme | orderBy: 'categorie'  ">
+        {{prog[0]}}
         <a href="/#/info">
             <div class="img-info">
                 <h2>Nom du film</h2>
@@ -20,6 +21,7 @@
                 <span class="temps">2h16</span>
             </div>
         </a>
+      </div>
 
     </ion-content>
 </ion-view>

@@ -32,7 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         });
 
         $stateProvider.state('lists', {
-            url: '/lists',
+            url: '/lists/:categorie',
             templateUrl: 'templates/lists.html'
         });
 

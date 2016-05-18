@@ -1,7 +1,7 @@
 <?php
 define('SQL_HOST',       'localhost');
 define('SQL_USERNAME',   'root');
-define('SQL_PASSWORD',   '');
+define('SQL_PASSWORD',   'root');
 define('SQL_DBNAME',	 'zype_tv');
 
 try {

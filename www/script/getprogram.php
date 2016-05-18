@@ -23,7 +23,7 @@ require_once 'db.php'; // The mysql database connection script
 
 $categorie = $_GET['categorie'];
 
-$sql = "SELECT title  FROM items where categorie = '".$categorie."'";
+$sql = "SELECT title,comments FROM items where categorie = '".$categorie."'";
 $req = $db->prepare($sql);
 $req->execute();
 $result = $req->fetchAll(PDO::FETCH_ASSOC);

@@ -18,54 +18,27 @@ a {
 .bar-stable .button.button-clear {
     color: #fff;
 }
-.img-info {
-    position: relative;
-    height: 50px;
-    width: 100%;
-    border-bottom: 1px solid #3481AA;
-}
-.img-info h2 {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    transform: translateY(-50%);
-    text-align: center;
-    color: #000;
-    font-size: 20px;
-    border: none;
-}
-.img-film {
-    width: 100%;
-    height: auto;
-}
-.img-chaine {
-    position: absolute;
-    bottom: 5%;
-    left: 10px;
-    width: 10%;
-    height: auto;
-}
-.heure {
-    position: absolute;
-    bottom: 5%;
-    left: 15%;
-    font-size: 15px;
-    color: #fff;
-}
-.temps {
-    position: absolute;
-    bottom: 5%;
-    right: 15%;
-    font-size: 15px;
-    color: #fff;
+
+/* Liste */
+
+.programmelist a{
+    text-decoration: none;
 }
 
-/* Bouons */
+.programmelist{
+    padding:10px 20px 5px 20px;
+    width:100%;
+}
+.programmelist h2{
+white-space: normal
+}
 
-h2{
 
-    border-bottom: 1px lightgrey solid;}
+/* Boutons */
+
+.souhaits h2{
+    border-bottom: 1px lightgrey solid;
+}
 .souhaits button{
     margin: 5px 5px 10px 5px;
 }

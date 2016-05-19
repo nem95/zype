@@ -3,7 +3,7 @@
 
         <div ng-repeat="inf in info" class="padding">
             <h2>{{inf.title}}</h2>
-            <p>{{inf.description}}</p>
+            <p ng-bind-html="inf.description"></p>
         </div>
 
     </ion-content>

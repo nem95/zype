@@ -1,1 +1,49 @@
-/* Empty. Add your own CSS if you like */
+a {
+    display: inline-block;
+}
+.has-header {
+    top:88px;
+}
+.bar-second {
+    top: 44px;
+    background-color: #3481AA !important;
+}
+.bar.bar-stable {
+    background-color: #53AFE0;
+    border: none;
+}
+.bar.bar-stable .title {
+    color: #fff;
+}
+.bar-stable .button.button-clear {
+    color: #fff;
+}
+.logo {
+    display: inline-block;
+    margin: 0 auto;
+    width: auto;
+    height: 100%;
+}
+/* Liste */
+
+.programmelist a{
+    text-decoration: none;
+}
+
+.programmelist{
+    padding:10px 20px 5px 20px;
+    width:100%;
+}
+.programmelist h2{
+white-space: normal
+}
+
+
+/* Boutons */
+
+.souhaits h2{
+    border-bottom: 1px lightgrey solid;
+}
+.souhaits button{
+    margin: 5px 5px 10px 5px;
+}

@@ -60,7 +60,39 @@ for ($i=0; $i < $itemCount; $i++){
             $categorie = "film-policier";
         }elseif($categorie == "Film de science-fiction" || $categorie = "Téléfilm de science-fiction"){
             $categorie = "film-science-fiction";
-        }
+        }elseif ($categorie == "Comédie dramatique" || $categorie == "Film dramatique" || $categorie == "Téléfilm dramatique" || $categorie == "Drame"){
+            $categorie = "film-dramatique";
+        }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
+            $categorie = "film-catastrophe";
+        }elseif ($categorie == "Film documentaire" || $categorie == "Téléfilm documentaire"){
+            $categorie = "film-documentaire";
+        }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
+            $categorie = "film-catastrophe";
+        }elseif ($categorie == "Film fantastique" || $categorie == "Téléfilm fantastique"){
+            $categorie = "film-fantastique";
+        }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
+            $categorie = "film-catastrophe";
+        }elseif ($categorie == "Film d'aventures" || $categorie == "Téléfilm d'aventures"){
+            $categorie = "film-aventures";
+        }elseif ($categorie == "Film humoristique" || $categorie == "Téléfilm humoristique"){
+            $categorie = "film-humoristique";
+        }elseif ($categorie == "Film historique" || $categorie == "Téléfilm historique"){
+            $categorie = "film-historique";
+        }elseif ($categorie == "Film sentimental" || $categorie == "Téléfilm sentimental"){
+            $categorie = "film-sentimental";
+        }elseif ($categorie == "Film d'horreur" || $categorie == "Téléfilm d'horreur"){
+            $categorie = "film-horreur";
+        }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
+            $categorie = "film-catastrophe";
+        }elseif ($categorie == "Film d'action" || $categorie == "Téléfilm d'action"){
+            $categorie = "film-action";
+        }elseif ($categorie == "Film suspense" || $categorie == "Téléfilm suspense"){
+            $categorie = "film-suspense";
+        }elseif ($categorie == "Série sentimentale" || $categorie == "Feuilleton sentimental"){
+            $categorie = "serie-sentimentale";
+        }elseif ($categorie == "Série réaliste" || $categorie == "Feuilleton réaliste"){
+            $categorie = "serie-realiste";
+        };
 
 
 

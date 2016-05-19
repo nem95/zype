@@ -1,20 +1,31 @@
 <?php
 
+ini_set('display_errors',1 );
+
+
 $datetoday = date('Y-m-j');
 $url = "http://webnext.fr/epg_cache/programme-tv-rss_".$datetoday.".xml";
 
-echo $url;
+echo '<a target="_blank" href="'.$url.'">'.$url.'</a>';
+
+// Initialiser cURL
+$curl = curl_init();
+// Définir l'adresse à ouvrir
+curl_setopt($curl, CURLOPT_URL, $url);
+// Suivre les redirections s'il y en a
+@curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+// Exécuter
+//$result = curl_exec($curl);
+// Fermer pour libérer des ressources systèmes
+curl_close($curl);
+// Afficher le code source de la page
 
 $xmlDoc = new DOMDocument();
 $xmlDoc->load($url);
-$mysql_hostname = "timotheefxtim.mysql.db"; // Example : localhost
-$mysql_user = "timotheefxtim";
-$mysql_password = "Adminparis96";
-$mysql_database = "timotheefxtim";
 
 /* Connection à la base de donnée */
 
-$dbh = new PDO("mysql:dbname={$mysql_database};host={$mysql_hostname};port=3306", $mysql_user, $mysql_password);
+include "www/script/db.php";
 
 $xmlObject = $xmlDoc->getElementsByTagName('item');
 $itemCount = $xmlObject->length;
@@ -38,83 +49,82 @@ $itemCount = $xmlObject->length;
 
 
 /* On vide la table items avant de insert */
-$sql = $dbh->exec("TRUNCATE items");
+    $sql = $db->exec("TRUNCATE items");
+
 
 /* Boucle pour ajouter chaque élements du xml dans mysql */
-for ($i=0; $i < $itemCount; $i++){
+    for ($i=0; $i < $itemCount; $i++){
 
-    $title = $xmlObject->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
-    $description = $xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
-    $comments = $xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue;
+        $title = $xmlObject->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
+        $description = $xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
+        $comments = $xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue;
 
-    /* On récupère les catégorie dans la descrpition */
-    $categorie = GetBetween($description,"<strong>","</strong>");
-
-
-    /* CONDITIONS */
-        if($categorie == "Film policier" || $categorie == "Téléfilm policier"){
-            $categorie = "film-policier";
-        }elseif($categorie == "Film de science-fiction" || $categorie = "Téléfilm de science-fiction"){
-            $categorie = "film-science-fiction";
-        }elseif ($categorie == "Comédie dramatique" || $categorie == "Film dramatique" || $categorie == "Téléfilm dramatique" || $categorie == "Drame"){
-            $categorie = "film-dramatique";
-        }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
-            $categorie = "film-catastrophe";
-        }elseif ($categorie == "Film documentaire" || $categorie == "Téléfilm documentaire"){
-            $categorie = "film-documentaire";
-        }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
-            $categorie = "film-catastrophe";
-        }elseif ($categorie == "Film fantastique" || $categorie == "Téléfilm fantastique"){
-            $categorie = "film-fantastique";
-        }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
-            $categorie = "film-catastrophe";
-        }elseif ($categorie == "Film d'aventures" || $categorie == "Téléfilm d'aventures"){
-            $categorie = "film-aventures";
-        }elseif ($categorie == "Film humoristique" || $categorie == "Téléfilm humoristique"){
-            $categorie = "film-humoristique";
-        }elseif ($categorie == "Film historique" || $categorie == "Téléfilm historique"){
-            $categorie = "film-historique";
-        }elseif ($categorie == "Film sentimental" || $categorie == "Téléfilm sentimental"){
-            $categorie = "film-sentimental";
-        }elseif ($categorie == "Film d'horreur" || $categorie == "Téléfilm d'horreur"){
-            $categorie = "film-horreur";
-        }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
-            $categorie = "film-catastrophe";
-        }elseif ($categorie == "Film d'action" || $categorie == "Téléfilm d'action"){
-            $categorie = "film-action";
-        }elseif ($categorie == "Film suspense" || $categorie == "Téléfilm suspense"){
-            $categorie = "film-suspense";
-        }elseif ($categorie == "Série sentimentale" || $categorie == "Feuilleton sentimental"){
-            $categorie = "serie-sentimentale";
-        }elseif ($categorie == "Série réaliste" || $categorie == "Feuilleton réaliste"){
-            $categorie = "serie-realiste";
-        };
+        /* On récupère les catégorie dans la descrpition */
+        $categorie = GetBetween($description,"<strong>","</strong>");
 
 
+        /* CONDITIONS */
+            if($categorie == "Film policier" || $categorie == "Téléfilm policier"){
+                $categorie = "film-policier";
+            }elseif($categorie == "Film de science-fiction" || $categorie == "Téléfilm de science-fiction"){
+                $categorie = "film-science-fiction";
+            }elseif ($categorie == "Comédie dramatique" || $categorie == "Film dramatique" || $categorie == "Téléfilm dramatique" || $categorie == "Drame"){
+                $categorie = "film-dramatique";
+            }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
+                $categorie = "film-catastrophe";
+            }elseif ($categorie == "Film documentaire" || $categorie == "Téléfilm documentaire"){
+                $categorie = "film-documentaire";
+            }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
+                $categorie = "film-catastrophe";
+            }elseif ($categorie == "Film fantastique" || $categorie == "Téléfilm fantastique"){
+                $categorie = "film-fantastique";
+            }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
+                $categorie = "film-catastrophe";
+            }elseif ($categorie == "Film d'aventures" || $categorie == "Téléfilm d'aventures"){
+                $categorie = "film-aventures";
+            }elseif ($categorie == "Film humoristique" || $categorie == "Téléfilm humoristique" || $categorie == "Divertissement-humour"){
+                $categorie = "film-humoristique";
+            }elseif ($categorie == "Film historique" || $categorie == "Téléfilm historique"){
+                $categorie = "film-historique";
+            }elseif ($categorie == "Film sentimental" || $categorie == "Téléfilm sentimental"){
+                $categorie = "film-sentimental";
+            }elseif ($categorie == "Film d'horreur" || $categorie == "Téléfilm d'horreur" || $categorie == "Film suspense" || $categorie == "Téléfilm suspense"){
+                $categorie = "film-horreur";
+            }elseif ($categorie == "Film catastrophe" || $categorie == "Téléfilm catastrophe"){
+                $categorie = "film-catastrophe";
+            }elseif ($categorie == "Film d'action" || $categorie == "Téléfilm d'action"){
+                $categorie = "film-action";
+            }elseif ($categorie == "Série sentimentale" || $categorie == "Feuilleton sentimental"){
+                $categorie = "serie-sentimentale";
+            }elseif ($categorie == "Série réaliste" || $categorie == "Feuilleton réaliste"){
+                $categorie = "serie-realiste";
+            };
 
-    $title = utf8_decode($xmlObject->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue);
-    $description = utf8_decode($xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue);
-    $comments = utf8_decode($xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue);
-    $categorie = utf8_decode($categorie);
+
+/*
+        $title = utf8_decode($xmlObject->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue);
+        $description = utf8_decode($xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue);
+        $comments = utf8_decode($xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue);
+        $categorie = utf8_decode($categorie);*/
 
 
-    /* On enleve les caractère spéciaux */
-    $title = clean($title);
+        /* On enleve les caractère spéciaux */
+        $title = clean($title);
 
-    /* Insertion bdd */
-    $sql = $dbh->prepare("INSERT INTO items (title, description, comments, categorie) VALUES (?, ?, ?, ?)");
-    $sql->execute(array(
-        $title,
-        $description,
-        $comments,
-        $categorie
-    ));
+        /* Insertion bdd */
+        $sql = $db->prepare("INSERT INTO items (title, description, comments, categorie) VALUES (?, ?, ?, ?)");
+        $sql->execute(array(
+            $title,
+            $description,
+            $comments,
+            $categorie
+        ));
 
-    print "Finished Item 
-        <ul>
-            <li>$title</li>
-            <li>$description</li>
-            <li>$categorie</li>
-            <li>$comments</li>
-        </ul><br/>";
-}
+        print "Finished Item 
+            <ul>
+                <li>$title</li>
+                <li>$description</li>
+                <li>$categorie</li>
+                <li>$comments</li>
+            </ul>";
+    }

@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
             });
         };
 
-    })
+    });
 
 /*
     .controller('SimpleController',function ($scope,$http){
@@ -49,6 +49,7 @@ angular.module('starter.controllers', [])
 
     })*/
 
+/*
 
     .controller('myController', ['$scope', 'PhpService',
         function ($scope, PhpService) {
@@ -58,4 +59,4 @@ angular.module('starter.controllers', [])
                 enviar = $.param({"enviado": JSON.stringify($scope.usuario)}); //convertimos a url string todos los parametros para enviarlos como tipo 'form'
                 PhpService.enviar(enviar);
             };
-        }]);
+        }]);*/

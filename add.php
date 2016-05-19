@@ -29,12 +29,24 @@ $sql = $dbh->exec("TRUNCATE items");
 
 for ($i=0; $i < $itemCount; $i++){
 
-    $title = utf8_decode($xmlObject->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue);
-    $description = utf8_decode($xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue);
-    $comments = utf8_decode($xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue);
+    $title = $xmlObject->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
+    echo $title;
+    $description = $xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
+    $comments = $xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue;
 
     $categorie = GetBetween($description,"<strong>","</strong>");
+    echo $categorie;
+    if($categorie ==  "Téléfilm d'action" || $categorie ==  "Film d'action"  ){
+      $categorie = 'film-action';
+    }else {
 
+    }
+
+    $title = utf8_decode($xmlObject->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue);
+
+    $description = utf8_decode($xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue);
+    $comments = utf8_decode($xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue);
+    $categorie = utf8_decode($categorie);
 
     $sql = $dbh->prepare("INSERT INTO items (title, description, comments, categorie) VALUES (?, ?, ?, ?)");
     $sql->execute(array(
@@ -44,7 +56,7 @@ for ($i=0; $i < $itemCount; $i++){
         $categorie
     ));
 
-    print "Finished Item 
+    print "Finished Item
         <ul>
             <li>$title</li>
             <li>$description</li>

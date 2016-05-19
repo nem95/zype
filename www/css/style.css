@@ -18,7 +18,10 @@ a {
 .bar-stable .button.button-clear {
     color: #fff;
 }
-
+.logo {
+    display: inline-block;
+    margin: 0 auto;
+}
 /* Liste */
 
 .programmelist a{

@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
     .controller('ListsConttroller', function ($scope, $stateParams, $ionicModal, $http) {
         getProgram($stateParams.categorie);
         function getProgram() {
-            $http.post("http://localhost:8888/zype/www/script/getprogram.php?categorie=" + $stateParams.categorie).success(function (data) {
+            $http.post("http://timothee-dorand.fr/zype/www/script/getprogram.php?categorie=" + $stateParams.categorie).success(function (data) {
                 $scope.programs = data;
             });
         };
@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
 
         getInfo($stateParams.title);
         function getInfo() {
-            $http.post("http://localhost:8888/zype/www/script/getinfo.php?title=" + $stateParams.title).success(function (data) {
+            $http.post("http://timothee-dorand.fr/zype/www/script/getinfo.php?title=" + $stateParams.title).success(function (data) {
                 $scope.info = data;
             });
         };

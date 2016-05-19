@@ -7,14 +7,14 @@ echo $url;
 
 $xmlDoc = new DOMDocument();
 $xmlDoc->load($url);
-$mysql_hostname = "localhost"; // Example : localhost
-$mysql_user = "root";
-$mysql_password = "root";
-$mysql_database = "zype_tv";
+$mysql_hostname = "timotheefxtim.mysql.db"; // Example : localhost
+$mysql_user = "timotheefxtim";
+$mysql_password = "Adminparis96";
+$mysql_database = "timotheefxtim";
 
 /* Connection à la base de donnée */
 
-$dbh = new PDO("mysql:dbname={$mysql_database};host={$mysql_hostname};port=8889", $mysql_user, $mysql_password);
+$dbh = new PDO("mysql:dbname={$mysql_database};host={$mysql_hostname};port=3306", $mysql_user, $mysql_password);
 
 $xmlObject = $xmlDoc->getElementsByTagName('item');
 $itemCount = $xmlObject->length;
@@ -33,9 +33,7 @@ $itemCount = $xmlObject->length;
 
     /* Fonction pour enlever les caractère spéciaux */
     function clean($string) {
-        $string = str_replace('|', ' - ', $string); // Replaces all spaces with hyphens.
-
-        return preg_replace('/[^A-Za-z0-9:\-]/', '', $string); // Removes special chars.
+        return preg_replace('/[^A-Za-z0-9:\-]/', ' ', $string); // Removes special chars.
     }
 
 
@@ -52,8 +50,6 @@ for ($i=0; $i < $itemCount; $i++){
     /* On récupère les catégorie dans la descrpition */
     $categorie = GetBetween($description,"<strong>","</strong>");
 
-    /* On enleve les caractère spéciaux */
-    $title = clean($title);
 
     /* CONDITIONS */
         if($categorie == "Film policier" || $categorie == "Téléfilm policier"){
@@ -69,6 +65,9 @@ for ($i=0; $i < $itemCount; $i++){
     $comments = utf8_decode($xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue);
     $categorie = utf8_decode($categorie);
 
+
+    /* On enleve les caractère spéciaux */
+    $title = clean($title);
 
     /* Insertion bdd */
     $sql = $dbh->prepare("INSERT INTO items (title, description, comments, categorie) VALUES (?, ?, ?, ?)");

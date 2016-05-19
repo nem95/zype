@@ -43,10 +43,13 @@ for ($i=0; $i < $itemCount; $i++){
     }
 
     $title = utf8_decode($xmlObject->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue);
-
-    $description = utf8_decode($xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue);
+    $description = $xmlObject->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
     $comments = utf8_decode($xmlObject->item($i)->getElementsByTagName('comments')->item(0)->childNodes->item(0)->nodeValue);
     $categorie = utf8_decode($categorie);
+
+    if($categorie == "Film policier" || $categorie == "Téléfilm policier"){
+        $categorie = utf8_decode("film-policier");
+    }
 
     $sql = $dbh->prepare("INSERT INTO items (title, description, comments, categorie) VALUES (?, ?, ?, ?)");
     $sql->execute(array(
@@ -56,7 +59,7 @@ for ($i=0; $i < $itemCount; $i++){
         $categorie
     ));
 
-    print "Finished Item
+    print "Finished Item 
         <ul>
             <li>$title</li>
             <li>$description</li>

@@ -29,8 +29,11 @@ $req->execute();
 $result = $req->fetchAll(PDO::FETCH_ASSOC);
 
 $arr = array();
-foreach($result as $val){
+foreach ($result as $val) {
     $arr[] = $val;
 }
-    echo $json_response = json_encode($result);
+if (empty($result)) {
+    $result[] = array("title" => "Il n'y a pas de film dans cette categorie aujourd'hui");
+}
+echo $json_response = json_encode($result);
 ?>

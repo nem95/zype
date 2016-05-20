@@ -1,15 +1,13 @@
 <ion-view view-title="Home">
-    <ion-content class="padding">
+    <ion-content class="padding" ng-controller="ListsConttroller">
         <div class="souhaits souhaits-film">
             <!-- Partie des souhaits de film -->
             <!-- TODO: Formulaire qui renvoi tous les souhaits cliqués dans la page list-->
 
             <h2>Films</h2>
-            <a href="/#/lists/film-policier">
-                <button class="button button-outline button-positive">
+                <button class="button button-outline button-positive" ng-click="addCategory('film-policier')">
                     Policier
                 </button>
-            </a>
             <a href="/#/lists/film-action">
                 <button class="button button-outline button-positive">
                     Action

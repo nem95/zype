@@ -8,6 +8,10 @@ angular.module('starter.controllers', [])
             });
         };
 
+        $scope.addCategory = function(data){
+          console.log(data);
+        }
+
     })
 
     .controller('InfoConttroller', function ($scope, $stateParams, $ionicModal, $http) {

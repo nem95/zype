@@ -1,0 +1,10 @@
+<ion-view view-title="Info">
+    <ion-content ng-controller="InfoConttroller">
+
+        <div ng-repeat="inf in info" class="padding">
+            <h2>{{inf.title}}</h2>
+            <p ng-bind-html="inf.description"></p>
+        </div>
+
+    </ion-content>
+</ion-view>

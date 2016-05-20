@@ -1,19 +1,15 @@
-
 <ion-view view-title="Liste">
-  <ion-content ng-controller="ListsConttroller" >
+  <ion-content ng-controller="ListsConttroller">
       <ul class="list">
-
-        <div ng-repeat="programs in programe">
-          <h2>{{programs}}</h2>
-
-            <li class="item programmelist">
-                <a href="/#/info/{{program.title}}" class="img-info">
-                </a>
-            </li>
-
-            <!--<img class="img-chaine" src="http://img.generation-nt.com/tf1-logo_0906CE028201568232.png" alt="">-->
-                    <!--<span class="heure">20h50</span>-->
-                    <!--<span class="temps">2h16</span>-->
+        <div ng-repeat="program in $storage.currentCategorie track by $index">
+          <div ng-repeat="program in $storage.currentCategorie[$index] track by $index">
+              <li class="item programmelist">
+                  <a href="/#/info/{{program.title}}" class="img-info">
+                      <h2>{{program.title}}</h2>
+                      <p>{{program.comments}}</p>
+                  </a>
+              </li>
+          </div>
         </div>
       </ul>
   </ion-content>

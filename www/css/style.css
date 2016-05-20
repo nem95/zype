@@ -49,24 +49,29 @@ white-space: normal
 }
 
 .boutonsouhait {
-    float: left;
     margin:4px;
     background-color:#fff;
     border-radius:4px;
     border:1px solid #387ef5;
+    padding:20px 0 20px 0;
+    width:auto;
+    text-align: justify;
+    display: inline-block;
+
 }
 .boutonsouhait label {
     background: white;
-    height:50px;
     color: #387ef5;
     border: none;
-
+    width:100%;
 }
 
 .boutonsouhait label span {
     text-align:center;
     height:50px;
     color: #387ef5;
+    padding:22px;
+    font-size:1.1em;
 }
 
 .boutonsouhait label input {

@@ -5,12 +5,81 @@
             <!-- TODO: Formulaire qui renvoi tous les souhaits cliqués dans la page list-->
 
             <h2>Films</h2>
-                <button class="button button-outline button-positive" ng-click="addCategory('film-policier')">
-                    Policier
-                </button>
-                <button class="button button-outline button-positive" ng-click= "addCategory('film-action')">
-                    Action
-                </button>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click="addCategory('film-policier')">
+                <span>Policier</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('film-action')">
+                    <span>Action</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('Comedie')">
+                    <span>Comédie</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('film-science-fiction')">
+                    <span>Science Fiction</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('Dessin animé')">
+                    <span>Dessin animé</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('Catastrophe')">
+                    <span>Catastrophe</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('Drame')">
+                    <span>Drame</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('film-fantastique')">
+                    <span>Fantastique</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('film-aventures')">
+                    <span>Aventures</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('film-sentimental')">
+                    <span>Sentimental</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('film-historique')">
+                    <span>Historique</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" class="boutonsouhait" ng-click= "addCategory('film-horreur')">
+                    <span>Horreur/ Suspense</span>
+                </label>
+            </div>
+        </div>
+
+            <!--
             <a href="/#/lists/Comedie">
                 <button class="button button-outline button-positive">
                     Comédie
@@ -60,8 +129,7 @@
                 <button class="button button-outline button-positive">
                     Horreur/ Suspense
                 </button>
-            </a>
-        </div>
+            </a>-->
         <div class="souhaits souhaits-serie">
             <h2>Séries TV</h2>
             <a href="/#/lists/Serie-comedie">

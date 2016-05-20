@@ -49,27 +49,30 @@ white-space: normal
 }
 
 .boutonsouhait {
+    float: left;
     margin:4px;
-    background-color:#EFEFEF;
+    background-color:#fff;
     border-radius:4px;
-    border:1px solid #D0D0D0;
-    overflow:auto;
-    float:left;
+    border:1px solid #387ef5;
 }
 .boutonsouhait label {
-    float:left;
-    width:4.0em;
+    background: white;
+    height:50px;
+    color: #387ef5;
+    border: none;
+
 }
 
 .boutonsouhait label span {
     text-align:center;
-    padding:3px 0px;
-    display:block;
+    height:50px;
+    color: #387ef5;
 }
 
 .boutonsouhait label input {
     position:absolute;
     top:-20px;
+    visibility: hidden;
 }
 
 .boutonsouhait input:checked + span {

@@ -1,22 +1,56 @@
 angular.module('starter.controllers', [])
 
-    .controller('ListsConttroller', function ($scope, $stateParams, $ionicModal, $http) {
-        getProgram($stateParams.categorie);
-        function getProgram() {
-            $http.post("http://timothee-dorand.fr/zype/www/script/getprogram.php?categorie=" + $stateParams.categorie).success(function (data) {
-                $scope.programs = data;
-            });
-        };
+    .controller('ListsConttroller', function ($scope, $stateParams, $ionicModal, $http, $state) {
+
 
         $scope.categorie = [];
+        $scope.programs = [];
 
         $scope.addCategory = function(data){
-          
           $scope.categorie.push(data);
-          //return  $scope.categorie;
           console.log($scope.categorie);
 
+          /*angular.forEach($scope.categorie, function(value, key) {
+
+            var i = key + 1;
+            console.log(data);
+            console.log(value);
+
+            if (data == value) {
+              console.log('hello');
+              $scope.categorie.splice(key );
+            }
+
+            i++;
+            console.log(i);
+
+          });*/
+
+
+          //return  $scope.categorie;
+
         }
+
+        $scope.getCategory = function(data){
+          console.log(data);
+          $scope.listCategory = data;
+          angular.forEach($scope.listCategory, function(value, key){
+            console.log(value);
+            //value = "fiction" = []
+            $http.post("http://timothee-dorand.fr/zype/www/script/getprogram.php?categorie=" + value).success(function (data) {
+              $scope.program = data;
+              $scope.programs.push($scope.program);
+
+              console.log($scope.programs);
+            });
+          });
+
+          $state.transitionTo("lists");
+
+        }
+
+
+
 
 
 

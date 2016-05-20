@@ -79,3 +79,13 @@ white-space: normal
     background-color: #206999;
     color:#fff;
 }
+.valider{
+  width: 100%;
+  position: absolute;;
+  bottom: 5px;
+}
+.img-validate{
+  width: 64px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -8,9 +8,18 @@ angular.module('starter.controllers', [])
             });
         };
 
+        $scope.categorie = [];
+
         $scope.addCategory = function(data){
-          console.log(data);
+          
+          $scope.categorie.push(data);
+          //return  $scope.categorie;
+          console.log($scope.categorie);
+
         }
+
+
+
 
     })
 

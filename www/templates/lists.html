@@ -2,8 +2,12 @@
   <ion-content ng-controller="ListsConttroller">
       <ul class="list">
         <div ng-repeat="program in $storage.currentCategorie track by $index">
+            <li class="item">
+                <b>---</b>
+            </li>
           <div ng-repeat="program in $storage.currentCategorie[$index] track by $index">
               <li class="item programmelist">
+                  <button class="button button-light">{{program.categorie}}</button>
                   <a href="/#/info/{{program.title}}" class="img-info">
                       <h2>{{program.title}}</h2>
                       <p>{{program.comments}}</p>

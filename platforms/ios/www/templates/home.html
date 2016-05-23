@@ -1,20 +1,92 @@
-<ion-view view-title="Home">
-    <ion-content class="padding">
+<ion-view view-title="Home ">
+    <ion-content class="padding" ng-controller="ListsConttroller">
         <div class="souhaits souhaits-film">
             <!-- Partie des souhaits de film -->
-            <!-- TODO: Formulaire qui renvoi tous les souhaits cliqués dans la page list-->
+            <div class="lightbulb">
+                <p>Quels types de programmes voulez-vous voir aujourd'hui à la tv ?</p>
+            </div>
+            <h2>Films
+                <span class="suivant">
+                    <input type="hidden" name="name" value="{{categorie}}">
+                    <button type="button" name="button" ng-click="getCategory(categorie)">Suivant  <i class="icon ion-android-arrow-forward"></i></button>
+                </span>
+            </h2>
 
-            <h2>Films</h2>
-            <a href="/#/lists/film-policier">
-                <button class="button button-outline button-positive">
-                    Policier
-                </button>
-            </a>
-            <a href="/#/lists/film-action">
-                <button class="button button-outline button-positive">
-                    Action
-                </button>
-            </a>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" checked ng-click="addCategory('film-policier')">
+                <span>Policier</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('film-action')">
+                    <span>Action</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('Comedie')">
+                    <span>Comédie</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('film-science-fiction')">
+                    <span>Science Fiction</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('Dessin animé')">
+                    <span>Dessin animé</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('Catastrophe')">
+                    <span>Catastrophe</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('Drame')">
+                    <span>Drame</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('film-fantastique')">
+                    <span>Fantastique</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('film-aventures')">
+                    <span>Aventures</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('film-sentimental')">
+                    <span>Sentimental</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('film-historique')">
+                    <span>Historique</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click= "addCategory('film-horreur')">
+                    <span>Horreur/ Suspense</span>
+                </label>
+            </div>
+        </div>
+
+            <!--
             <a href="/#/lists/Comedie">
                 <button class="button button-outline button-positive">
                     Comédie
@@ -64,10 +136,38 @@
                 <button class="button button-outline button-positive">
                     Horreur/ Suspense
                 </button>
-            </a>
-        </div>
+            </a>-->
         <div class="souhaits souhaits-serie">
-            <h2>Séries TV</h2>
+            <h2>Séries TV
+            <span class="suivant">
+                    <input type="hidden" name="name" value="{{categorie}}">
+                    <button type="button" name="button" ng-click="getCategory(categorie)">Suivant  <i class="icon ion-android-arrow-forward"></i></button>
+                </span>
+            </h2>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click="addCategory('Serie-comedie')">
+                    <span>Comédie</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click="addCategory('Divertissement-humour')">
+                    <span>Humoristique</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click="addCategory('Film documentaire')">
+                    <span>Documentaires</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click="addCategory('Animalier')">
+                    <span>Animalier</span>
+                </label>
+            </div><!--
             <a href="/#/lists/Serie-comedie">
                 <button class="button button-outline button-positive">
                     Comédie
@@ -90,10 +190,28 @@
                 <button class="button button-outline button-positive">
                     Animalier
                 </button>
-            </a>
+            </a>-->
 
-            <div class="souhaits souhaits-autre">
-            <h2>Autres</h2>
+        <div class="souhaits souhaits-autre">
+            <h2>Autres
+            <span class="suivant">
+                    <input type="hidden" name="name" value="{{categorie}}">
+                    <button type="button" name="button" ng-click="getCategory(categorie)">Suivant  <i class="icon ion-android-arrow-forward"></i></button>
+                </span>
+            </h2>
+
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click="addCategory('Journal')">
+                    <span>Journal</span>
+                </label>
+            </div>
+            <div class="boutonsouhait">
+                <label>
+                    <input type="checkbox" ng-click="addCategory('Météo')">
+                    <span>Météo</span>
+                </label>
+            </div><!--
             <a href="/#/lists/Journal">
                 <button class="button button-outline button-positive">
                     Journal
@@ -103,10 +221,19 @@
                 <button class="button button-outline button-positive">
                     Météo
                 </button>
-            </a>
+            </a>-->
 
         </div>
         </div>
+      <!--  <div class="valider">
+            <div class="img-validate">
+                <input type="hidden" name="name" value="{{categorie}}">
+                <button type="button" name="button" class="nostyle" ng-click="getCategory(categorie)"><img src="img/checked.png" alt="" /></button>
+            </div>
+        </div>-->
+
 
     </ion-content>
+
 </ion-view>
+

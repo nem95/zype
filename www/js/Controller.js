@@ -7,14 +7,13 @@ angular.module('starter.controllers', ['ngStorage',])
           currentCategorie:'',
         });
 
-        $scope.categorie = ["film-policier"];
+        $scope.categorie = ["onvarienmettreladedans"];
         $scope.program = [];
         /*$scope.addCategory = function(data){
           $scope.categorie.push(data);
           console.log($scope.categorie);
         }*/
         $scope.addCategory = function(data){
-
 
           console.log(data);
 
